@@ -3,54 +3,27 @@
 ## docker-compose.yml
 
 ```yaml
-version: "3.9"
-
 services:
-  mariadb:
-    image: mariadb
-    container_name: mariadb-test
-    environment:
-      MYSQL_RANDOM_ROOT_PASSWORD: 1
-      MYSQL_DATABASE: wp
-      MYSQL_USER: wpuser
-      MYSQL_PASSWORD: geheim
-    volumes:
-      - myvolume:/var/lib/mysql
-    networks:
-      - testnet
-
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    container_name: pma
+  web:
+    build: .
+    container_name: WebS
     ports:
-      - "8080:80"
-    environment:
-      PMA_HOST: mariadb
-    networks:
-      - testnet
-
-  wordpress:
-    image: wordpress
-    container_name: wordpress
-    hostname: wordpress-titel
+      - 3000:3000
+    depends_on:
+      - db
+  db:
+    image: mysql
+    container_name: DatenB
     ports:
-      - "8081:80"
+      - 3306:3306
     environment:
-      WORDPRESS_DB_HOST: mariadb
-      WORDPRESS_DB_USER: wpuser
-      WORDPRESS_DB_NAME: wp
-      WORDPRESS_DB_PASSWORD: geheim
-    volumes:
-      - wp-html:/var/www/html/wp-content
-    networks:
-      - testnet
-
-volumes:
-  myvolume:
-  wp-html:
-
-networks:
-  testnet:
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/dbpw
+      MYSQL_DATABASE: webDB
+    secrets:
+      - dbpw
+secrets:
+  dbpw:
+    file: ./pw/pw.txt
 ```
 
 ---
