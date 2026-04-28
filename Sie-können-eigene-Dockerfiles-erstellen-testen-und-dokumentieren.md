@@ -5,12 +5,12 @@
 ## Projektübersicht
 
 ```text
-projekt/
+uebung2/
+├── pw
+  ├── pw.txt
 ├── Dockerfile
-├── .dockerignore
 ├── package.json
 ├── server.js
-└── README.md
 ```
 
 ---
@@ -23,26 +23,18 @@ Beschreibt, wie ein Docker Image gebaut wird.
 ## Beispiel Dockerfile
 
 ```Dockerfile
-# Basis-Image wählen (Node.js)
-FROM node:20-alpine
-
-# Arbeitsverzeichnis im Container
+FROM node:18
+ 
 WORKDIR /app
-
-# Nur package Dateien kopieren (für besseres Caching)
-COPY package*.json ./
-
-# Abhängigkeiten installieren
+ 
+COPY server.js /app/
+COPY package.json /app/
+ 
 RUN npm install
-
-# Restlichen Code kopieren
-COPY . .
-
-# Port dokumentieren
-EXPOSE 3000
-
-# Startbefehl
+ 
 CMD ["node", "server.js"]
+ 
+EXPOSE 3000
 ```
 
 ## Erklärung
@@ -83,14 +75,14 @@ Definiert die Node.js Anwendung und ihre Abhängigkeiten.
 
 ```json
 {
-  "name": "my-node-app",
+  "name": "docker-node-app",
   "version": "1.0.0",
-  "description": "A simple Node.js app",
-  "main": "index.js",
+  "description": "Simple Node.js Docker App",
+  "main": "server.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node server.js"
   },
-  "author": "Your Name",
+  "author": "",
   "license": "ISC"
 }
 ```
@@ -115,16 +107,12 @@ Die eigentliche Anwendung, die im Container läuft.
 ## Beispiel
 
 ```javascript
-const express = require("express");
-const app = express();
-
-app.get("/", (req, res) => {
-  res.send("Docker Webserver läuft");
-});
-
-app.listen(3000, () => {
-  console.log("Server läuft auf Port 3000");
-});
+const http = require("http");
+ 
+http.createServer((req, res) => {
+  res.write("Hello Docker!");
+  res.end();
+}).listen(3000);
 ```
 
 ## Erklärung
