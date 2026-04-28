@@ -27,7 +27,7 @@ secrets:
   dbpw:
     file: ./pw/pw.txt
 ```
-```
+```yml
 services:
  
   mariadb-test:
