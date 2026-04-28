@@ -83,12 +83,15 @@ Definiert die Node.js Anwendung und ihre Abhängigkeiten.
 
 ```json
 {
-  "name": "docker-app",
+  "name": "my-node-app",
   "version": "1.0.0",
-  "main": "server.js",
-  "dependencies": {
-    "express": "^4.18.2"
-  }
+  "description": "A simple Node.js app",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Your Name",
+  "license": "ISC"
 }
 ```
 
