@@ -11,6 +11,7 @@ uebung2/
 ├── Dockerfile
 ├── package.json
 ├── server.js
+├── docker-compse.yml
 ```
 
 ---
