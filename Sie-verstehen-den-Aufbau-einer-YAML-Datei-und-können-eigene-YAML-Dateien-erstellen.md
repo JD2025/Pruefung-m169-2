@@ -1,5 +1,4 @@
-# Sie verstehen den Aufbau einer YAML-Datei und können eigene YAML-Dateien erstellen.
-
+# Aufbau/erstellen einer YAML-Datei.
 Eine YAML-Datei ist eine Datei, die Dinge **strukturiert beschreibt**  
 (z. B. für Docker Compose).
 
