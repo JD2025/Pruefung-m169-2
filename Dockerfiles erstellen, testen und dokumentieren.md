@@ -237,3 +237,19 @@ Wenn du:
 - das Projekt starten kannst  
 
 Dann erfüllst du das Lernziel vollständig
+
+```yaml
+FROM ubuntu:22.04
+# keine interaktiven prompts
+ENV DEBIAN_FRONTEND=noninteractive
+# Apache installieren
+RUN apt-get update && \
+   apt-get install -y apache2 && \
+   apt-get clean
+# optional: eigene HTML-Dateien
+COPY ./html/ /var/www/html/
+# Port freigeben
+EXPOSE 80
+# Apache im Vordergrund starten
+CMD ["apachectl", "-D", "FOREGROUND"]
+```
