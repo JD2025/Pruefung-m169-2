@@ -238,14 +238,12 @@ Wenn du:
 
 Dann erfüllst du das Lernziel vollständig
 
-```yaml
+```Dockerfile
 FROM ubuntu:22.04
 # keine interaktiven prompts
-ENV DEBIAN_FRONTEND=noninteractive
 # Apache installieren
 RUN apt-get update && \
    apt-get install -y apache2 && \
-   apt-get clean
 # optional: eigene HTML-Dateien
 COPY ./html/ /var/www/html/
 # Port freigeben
