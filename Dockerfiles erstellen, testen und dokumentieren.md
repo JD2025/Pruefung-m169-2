@@ -1,4 +1,4 @@
-# Sie können eigene Dockerfiles erstellen, testen und dokumentieren.¨
+# Dockerfiles erstellen, testen und dokumentieren.
 
 ---
 
