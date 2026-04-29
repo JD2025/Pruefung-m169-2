@@ -1,4 +1,4 @@
-# Sie kennen die Syntax von Dockerfiles.
+# Syntax von Dockerfiles.
 
 ---
 
