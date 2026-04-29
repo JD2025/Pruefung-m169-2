@@ -1,4 +1,4 @@
-# Sie können das Beispiel von Dockerfiles nachvollziehen.
+# Dockerfiles nachvollziehen.
 
 ## Beispiel: Produktionsnahes Dockerfile
 
