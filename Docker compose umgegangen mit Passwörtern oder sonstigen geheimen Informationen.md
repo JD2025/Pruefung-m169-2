@@ -1,4 +1,4 @@
-# Sie verstehen wie in Docker compose mit Passwörtern oder sonstigen geheimen Informationen umgegangen wird.
+# Docker compose umgegangen mit Passwörtern oder sonstigen geheimen Informationen 
 
 ---
 
