@@ -1,4 +1,4 @@
-# Sie können Docker compose anwenden.
+# Docker compose anwenden.
 
 ---
 
